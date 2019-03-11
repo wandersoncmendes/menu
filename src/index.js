@@ -17,6 +17,8 @@ app.get('/', (req, res) => {
   });
 });
 
+app.use(require('./middlewares/cors'))
+
 app.listen(3000, () => {
   console.log(`Server is running on port ${port}`);
 });

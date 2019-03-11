@@ -1,12 +1,8 @@
-require("dotenv").config();
-
-const express = require("express");
-const morgan = require("morgan");
-
-const app = express();
+const app = require('./server');
 
 const port = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 app.use(process.env.NODE_ENV === "dev" ?
   morgan("dev") :
   morgan("tiny"));
@@ -19,6 +15,8 @@ app.get('/', (req, res) => {
 
 app.use(require('./middlewares/cors'))
 
+=======
+>>>>>>> feature/login
 app.listen(3000, () => {
   console.log(`Server is running on port ${port}`);
 });

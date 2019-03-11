@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 start src/index.js --name menu",
+    "start": "pm2 start src/index.js --name menu --watch",
     "stop": "pm2 stop menu",
     "delete": "pm2 delete menu",
     "restart": "pm2 restart menu",
+    "logs": "pm2 logs menu",
     "rerun": "npm run stop && npm run delete && npm run dev"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/Neillon/menu#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4"
   },

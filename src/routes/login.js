@@ -9,6 +9,7 @@ routes.post('/login', (req, res) => {
         return reply.code(400).message('[username] required', 'Nome do usuário é um campo obrigatório').end();
     if (!password || password.trim() === '')
         return reply.code(400).message('[password] required', 'Senha do usuário é um campo obrigatório').end();
+     
 });
 
 module.exports = routes;

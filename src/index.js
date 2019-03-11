@@ -7,14 +7,14 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use(process.env.NODE_ENV === "dev" ? 
-  morgan("dev") : 
+app.use(process.env.NODE_ENV === "dev" ?
+  morgan("dev") :
   morgan("tiny"));
 
 app.get('/', (req, res) => {
-	return res.json({
-		message: 'ok'
-	});
+  return res.json({
+    message: 'ok'
+  });
 });
 
 app.listen(3000, () => {

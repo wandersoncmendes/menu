@@ -2,7 +2,7 @@
 class Reply {
     constructor(req, res) {
         this.res = res;
-        console.log('req hoest', req.path)
+        
         this.obj = {
             method: req.method,
             path: req.path,
@@ -49,4 +49,7 @@ class Reply {
 
 }
 
-module.exports = (req, res )=> new Reply(req, res);
+module.exports = (req, res, next)=> {
+    req.reply = new Reply(req, res);
+    return next();
+};

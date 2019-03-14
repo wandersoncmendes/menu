@@ -2,7 +2,7 @@
 class Reply {
     constructor(req, res) {
         this.res = res;
-        console.log('req hoest', req.path)
+        
         this.obj = {
             method: req.method,
             path: req.path,

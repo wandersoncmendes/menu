@@ -1,7 +1,6 @@
 const routes = require('express').Router();
 
 routes.post('/login', (req, res) => {
-    // const reply = require('../utils/reply')(req, res);
 
     let { username, password } = req.body;
 

@@ -15,6 +15,7 @@ class Reply {
 
         this.code = (status) => {
             this.obj.status = status;
+            
             return this;
         }
     
@@ -22,11 +23,13 @@ class Reply {
             this.obj.message = message;
             if (clientMessage) 
                 this.obj.clientMessage = clientMessage;
+
             return this;
         }
     
         this.json = (json) => {
             this.obj.json = json;
+
             return this;
         }
     
@@ -38,11 +41,12 @@ class Reply {
             }
             this.obj.error = {};
             this.obj.error.message = error.message;
+            this.obj.error.detail = error.detail || undefined;
+
             return this;
         }
     
         this.end = () => {
-            console.log('entrou aqui')
             return this.res.status(this.obj.status).json(this.obj).end();
         }
     }

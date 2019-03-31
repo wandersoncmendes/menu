@@ -1,16 +1,14 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require('body-parser');
-const helmet = requier('helmet');
+const helmet = require('helmet');
 
 class Server {
 
     constructor() {
         this.app = express();
 
-
         this.middlewares();
-
 
         this.routes();
     }

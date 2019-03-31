@@ -1,14 +1,21 @@
 const routes = require('express').Router();
+const { User } = require('../models');
 
-routes.post('/login', (req, res) => {
+routes.post('/login', async (req, res) => {
+    
+    const reply = require('../../utils/reply')(req, res);
 
-    let { username, password } = req.body;
+    try {
+        await User.create({
+            name: 'neillon',
+            email: 'neilloncesar13@gmail.com',
+            password: '123456'
+        });
 
-    if (!username || username.trim() === '')
-        return req.reply.code(400).message('[username] required', 'Nome do usuário é um campo obrigatório').end();
-    if (!password || password.trim() === '')
-        return req.reply.code(400).message('[password] required', 'Senha do usuário é um campo obrigatório').end();
-     
+        return reply.code(200).message('ok', 'Usuario criado com sucesso').end();
+    } catch (error) {
+        return reply.code(400).error(error).message('error', 'Nao foi possivel inserir usuario').end();
+    }
 });
 
 module.exports = routes;

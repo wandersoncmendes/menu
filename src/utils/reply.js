@@ -49,7 +49,6 @@ class Reply {
 
 }
 
-module.exports = (req, res, next)=> {
-    req.reply = new Reply(req, res);
-    return next();
+module.exports = (req, res)=> {
+    return new Reply(req, res);
 };

@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 start src/index.js --name menu",
+    "start": "pm2 start pm2.config.json",
     "stop": "pm2 stop menu",
     "delete": "pm2 delete menu",
     "restart": "pm2 restart menu",
-    "rerun": "npm run stop && npm run delete && npm run dev"
+    "logs": "pm2 logs menu",
+    "rerun": "npm run stop && npm run delete && npm start"
   },
   "repository": {
     "type": "git",
@@ -23,12 +24,23 @@
   },
   "homepage": "https://github.com/Neillon/menu#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "dotenv": "^6.2.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "jsonwebtoken": "^8.5.0",
+    "pg": "^7.9.0",
+    "sequelize": "^5.2.8"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "eslint": "^5.16.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
-    "pm2": "^3.4.0"
+    "pm2": "^3.4.0",
+    "sequelize-cli": "^5.4.0"
   }
 }
